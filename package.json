@@ -1,6 +1,6 @@
 {
   "name": "devto-mcp",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Model Context Protocol (MCP) server for the DEV Community (Forem) API. Manage articles, comments, users, tags, and more through MCP-compatible clients.",
   "type": "module",
   "main": "dist/index.js",
