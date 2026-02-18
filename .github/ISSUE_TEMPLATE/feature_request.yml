@@ -1,0 +1,46 @@
+name: ✨ Feature Request
+description: Suggest a new feature for DevTo-MCP
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting a feature! Please fill out the information below.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Feature Description
+      description: A clear description of the feature you'd like to see.
+      placeholder: I'd like to be able to...
+    validations:
+      required: true
+
+  - type: textarea
+    id: use-case
+    attributes:
+      label: Use Case
+      description: How would you use this feature?
+      placeholder: This would be useful when...
+    validations:
+      required: true
+
+  - type: textarea
+    id: api-endpoint
+    attributes:
+      label: Related API Endpoint
+      description: If this relates to a specific Forem API endpoint, please link it.
+      placeholder: "https://developers.forem.com/api/v1#..."
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: Any alternative solutions you've considered.
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context
+      description: Any other context, mockups, or references.
