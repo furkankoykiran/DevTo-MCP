@@ -141,11 +141,7 @@ export DEVTO_API_KEY=your_api_key_here
 | `get_organization_articles` | List an organization's published articles |
 | `get_organization_users` | List users in an organization |
 
-### Reactions
 
-| Tool | Description |
-|------|-------------|
-| `toggle_reaction` | Toggle a reaction (like, unicorn, readinglist, etc.) on an article or comment |
 
 ### Reading List
 
@@ -167,6 +163,11 @@ The API client includes production-grade resilience features:
 - **Retries**: Automatic retry with exponential backoff (1s → 2s → 4s) for transient errors (HTTP 429, 5xx)
 - **Rate Limiting**: Respects `Retry-After` headers; surfaces `x-ratelimit-remaining` in error messages
 - **Structured Errors**: `ForemApiError` includes status code, endpoint, HTTP method, request ID, and rate-limit info
+
+## Known Limitations
+
+- **Reactions**: The `toggle_reaction` tool is currently disabled due to API 401 Unauthorized errors, likely caused by insufficient scopes on standard API keys. This feature may be re-enabled in a future release if API permissions are clarified.
+- **Draft Articles**: Retrieval of draft articles via `get_article_by_id` uses a fallback mechanism (searching user's full article list) because the public endpoint does not support drafts. This ensures seamless access for authenticated users.
 
 ## Environment Variables
 

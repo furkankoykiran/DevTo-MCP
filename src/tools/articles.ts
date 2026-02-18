@@ -55,7 +55,26 @@ export function registerArticleTools(server: McpServer, client: ForemApiClient):
                 return {
                     content: [{ type: "text", text: JSON.stringify(article, null, 2) }],
                 };
-            } catch (error) {
+            } catch (error: any) {
+                // If the error is a 404, it might be a draft article which the public endpoint
+                // doesn't return. We try to find it in the user's articles.
+                if (error?.status === 404) {
+                    try {
+                        const allArticles = await client.get<Article[]>("/articles/me/all", {
+                            per_page: 1000,
+                        });
+                        const article = allArticles.find((a) => a.id === params.id);
+                        if (article) {
+                            return {
+                                content: [{ type: "text", text: JSON.stringify(article, null, 2) }],
+                            };
+                        }
+                    } catch (fallbackError) {
+                        // If fallback fails, we'll throw the original error or a new one
+                        console.error("Fallback lookup failed:", fallbackError);
+                    }
+                }
+
                 return {
                     content: [{ type: "text", text: `Error: ${error instanceof Error ? error.message : String(error)}` }],
                     isError: true,
