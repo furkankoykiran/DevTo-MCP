@@ -1,16 +1,8 @@
 name: Publish to npm
 
 on:
-  workflow_dispatch:
-    inputs:
-      dry-run:
-        description: 'Perform a dry run (do not actually publish)'
-        required: false
-        default: 'false'
-        type: choice
-        options:
-          - 'false'
-          - 'true'
+  release:
+    types: [published]
 
 permissions:
   contents: read
@@ -46,14 +38,7 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Publish (dry run)
-        if: ${{ inputs.dry-run == 'true' }}
-        run: npm publish --provenance --access public --dry-run
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
       - name: Publish
-        if: ${{ inputs.dry-run == 'false' }}
         run: npm publish --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
