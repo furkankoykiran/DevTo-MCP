@@ -55,10 +55,12 @@ export function registerArticleTools(server: McpServer, client: ForemApiClient):
                 return {
                     content: [{ type: "text", text: JSON.stringify(article, null, 2) }],
                 };
-            } catch (error: any) {
+            } catch (error: unknown) {
                 // If the error is a 404, it might be a draft article which the public endpoint
                 // doesn't return. We try to find it in the user's articles.
-                if (error?.status === 404) {
+                const is404 = typeof error === "object" && error !== null && "status" in error && (error as { status?: number }).status === 404;
+
+                if (is404) {
                     try {
                         const allArticles = await client.get<Article[]>("/articles/me/all", {
                             per_page: 1000,
