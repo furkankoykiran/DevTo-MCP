@@ -5,7 +5,7 @@ import { registerCommentTools } from "./tools/comments.js";
 import { registerUserTools } from "./tools/users.js";
 import { registerTagTools } from "./tools/tags.js";
 import { registerOrganizationTools } from "./tools/organizations.js";
-import { registerReactionTools } from "./tools/reactions.js";
+// import { registerReactionTools } from "./tools/reactions.js";
 import { registerReadingListTools } from "./tools/reading-list.js";
 import { registerFollowerTools } from "./tools/followers.js";
 
@@ -25,7 +25,7 @@ export function createServer(apiKey: string): McpServer {
     registerUserTools(server, client);
     registerTagTools(server, client);
     registerOrganizationTools(server, client);
-    registerReactionTools(server, client);
+    // registerReactionTools(server, client); // Disabled due to API 401 issues
     registerReadingListTools(server, client);
     registerFollowerTools(server, client);
 
