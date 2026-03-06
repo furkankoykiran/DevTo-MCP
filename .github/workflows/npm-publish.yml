@@ -62,6 +62,6 @@ jobs:
       - name: Build
         run: npm run build
       - name: Publish to GitHub Packages
-        run: npm publish
+        run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
