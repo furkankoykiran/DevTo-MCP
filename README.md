@@ -3,7 +3,7 @@
 A production-ready [Model Context Protocol](https://modelcontextprotocol.io) (MCP) server for the [DEV Community](https://dev.to) (Forem) API. Manage articles, comments, users, tags, organizations, and more through any MCP-compatible client.
 
 [![CI](https://github.com/furkankoykiran/DevTo-MCP/actions/workflows/ci.yml/badge.svg)](https://github.com/furkankoykiran/DevTo-MCP/actions/workflows/ci.yml)
-[![npm version](https://img.shields.io/npm/v/devto-mcp.svg)](https://www.npmjs.com/package/devto-mcp)
+[![npm version](https://img.shields.io/npm/v/@furkankoykiran/devto-mcp.svg)](https://www.npmjs.com/package/@furkankoykiran/devto-mcp)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Node.js](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen.svg)](https://nodejs.org)
 [![TypeScript](https://img.shields.io/badge/TypeScript-strict-blue.svg)](https://www.typescriptlang.org)
@@ -14,7 +14,7 @@ A production-ready [Model Context Protocol](https://modelcontextprotocol.io) (MC
 
 Install the DevTo MCP server in VS Code with one click:
 
-[<img alt="Install in VS Code" src="https://img.shields.io/badge/VS_Code-Install_Server-0098FF?style=for-the-badge&logo=visualstudiocode&logoColor=white" />](https://insiders.vscode.dev/redirect?url=vscode%3Amcp%2Finstall%3F%7B%22name%22%3A%22devto%22%2C%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22-y%22%2C%22devto-mcp%22%5D%2C%22env%22%3A%7B%22DEVTO_API_KEY%22%3A%22YOUR_API_KEY%22%7D%7D)
+[<img alt="Install in VS Code" src="https://img.shields.io/badge/VS_Code-Install_Server-0098FF?style=for-the-badge&logo=visualstudiocode&logoColor=white" />](https://insiders.vscode.dev/redirect?url=vscode%3Amcp%2Finstall%3F%7B%22name%22%3A%22devto%22%2C%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22-y%22%2C%22%40furkankoykiran%2Fdevto-mcp%22%5D%2C%22env%22%3A%7B%22DEVTO_API_KEY%22%3A%22YOUR_API_KEY%22%7D%7D)
 
 > **Note:** After installing, replace `YOUR_API_KEY` with your actual DEV Community API key from [dev.to/settings/extensions](https://dev.to/settings/extensions).
 
@@ -27,7 +27,7 @@ Add to your `claude_desktop_config.json`:
   "mcpServers": {
     "devto": {
       "command": "npx",
-      "args": ["-y", "devto-mcp"],
+      "args": ["-y", "@furkankoykiran/devto-mcp"],
       "env": {
         "DEVTO_API_KEY": "your_api_key_here"
       }
@@ -45,7 +45,7 @@ Add to your Cursor MCP settings:
   "mcpServers": {
     "devto": {
       "command": "npx",
-      "args": ["-y", "devto-mcp"],
+      "args": ["-y", "@furkankoykiran/devto-mcp"],
       "env": {
         "DEVTO_API_KEY": "your_api_key_here"
       }
@@ -74,13 +74,13 @@ Add to your Cursor MCP settings:
 ### Using npx (recommended)
 
 ```bash
-DEVTO_API_KEY=your_key npx devto-mcp
+DEVTO_API_KEY=your_key npx -y @furkankoykiran/devto-mcp
 ```
 
 ### Global install
 
 ```bash
-npm install -g devto-mcp
+npm install -g @furkankoykiran/devto-mcp
 ```
 
 ### From source
