@@ -1,6 +1,10 @@
 {
-  "name": "devto-mcp",
+  "name": "@furkankoykiran/devto-mcp",
   "version": "1.0.2",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "access": "public"
+  },
   "description": "A Model Context Protocol (MCP) server for the DEV Community (Forem) API. Manage articles, comments, users, tags, and more through MCP-compatible clients.",
   "type": "module",
   "main": "dist/index.js",
@@ -48,9 +52,6 @@
     "url": "https://github.com/furkankoykiran/DevTo-MCP/issues"
   },
   "homepage": "https://github.com/furkankoykiran/DevTo-MCP#readme",
-  "publishConfig": {
-    "access": "public"
-  },
   "files": [
     "dist/",
     "README.md",
